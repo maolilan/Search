@@ -29,7 +29,7 @@ int* FindTuple (const int *const items, const int n_items,
 		right = -1;
 		if (items[index-1] == key) {
 			middle = index-1;
-			left = index-2>-1?index-2:-1;
+			left = index>1?index-2:-1;
 		}
 		else {
 			middle = -1;
@@ -39,10 +39,10 @@ int* FindTuple (const int *const items, const int n_items,
 
 	else {
 		right = index;
-		if (index-1>-1) {
+		if (index>0) {
 			if (items[index-1] == key) {
 				middle = index - 1;
-				left = index-2>-1?index-2:-1;
+				left = index>1?index-2:-1;
 			}
 			else {
 				middle = -1;
