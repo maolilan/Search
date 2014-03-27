@@ -9,7 +9,7 @@
  */
 
 int* FindTuple (const int *const items, const int n_items, 
-	const int ascending, const int key) {
+    const int ascending, const int key) {
 
 	int left=0, middle=0, right=0;
 	int index=0;
@@ -75,31 +75,31 @@ int* FindTuple (const int *const items, const int n_items,
 
 
 SearchResult Search (const int *const items, const int n_items, 
-	const int ascending, const int key, 
+    const int ascending, const int key, 
     const SearchType type, int *const index)
 {
-    int *TupleValue;
+	int *TupleValue;
     
-    /*
-    if (KeyMap.Find(key)!=KeyMap.end()) {
-        TupleValue = KeyMap[key];
-    } 
-    else {
-        TupleValue = FindTuple(items, n_items, ascending, key);
-    }
-     */
+	/*
+	if (KeyMap.Find(key)!=KeyMap.end()) {
+		TupleValue = KeyMap[key];
+	} 
+	else {
+		TupleValue = FindTuple(items, n_items, ascending, key);
+	}
+	*/
 
-    TupleValue = FindTuple(items, n_items, ascending, key);
+	TupleValue = FindTuple(items, n_items, ascending, key);
 	SearchResult result = NotFound;
-    int left = TupleValue[0];
-    int middle = TupleValue[1];
-    int right = TupleValue[2];
+	int left = TupleValue[0];
+	int middle = TupleValue[1];
+	int right = TupleValue[2];
 
 	switch (type)
 	{
 	    case (LessThan):
 		*index = left;
-        result = left==-1?NotFound:FoundLess;
+	    	result = left==-1?NotFound:FoundLess;
 		break;
 	    case (LessThanEquals):
 		if (middle!=-1) {
@@ -117,7 +117,7 @@ SearchResult Search (const int *const items, const int n_items,
 		break;
 	    case (Equals):
 		*index = middle;
-        result = middle==-1?NotFound:FoundExact;
+        	result = middle==-1?NotFound:FoundExact;
 		break;
 	    case (GreaterThanEquals):
 		if (middle!=-1) {
@@ -135,7 +135,7 @@ SearchResult Search (const int *const items, const int n_items,
 		break;
 	    case (GreaterThan):
 		*index = right;
-        result = right==-1?NotFound:FoundGreater;
+        	result = right==-1?NotFound:FoundGreater;
 		break;
 	    default:
 		*index = -1;
