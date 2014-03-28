@@ -23,17 +23,23 @@ int main(void) {
 	int ascending = 0;
 	int key[6] = {-1,4,8,5,2,9};
 	SearchType type[6] = {LessThan, LessThanEquals, Equals, 
-		GreaterThanEquals, GreaterThanEquals, GreaterThan};
+	    GreaterThanEquals, GreaterThanEquals, GreaterThan};
 	int index[6] = {0, 0, 0, 0, 0, 0};
 	
 	/* answer */
 	int index_answer[6] = {-1, 2, 0, 1, 3, -1};
 	SearchResult answer[6] = {NotFound, FoundExact, FoundExact, 
-		FoundGreater, FoundExact, NotFound};
+	    FoundGreater, FoundExact, NotFound};
+		
+	/* print out the test array */
+	cout << "The test array is: " << "\n";
+	for (int i=0; i<5; i++)
+		cout << TestArray[i] << " ";
+	cout << "\n";
 	
 	for (int i=0; i<6; i++)
-	SearchTest(TestArray, 5, ascending, key[i], 
-		type[i], index+i, answer[i], index_answer+i);
+		SearchTest(TestArray, 5, ascending, key[i], 
+		    type[i], index+i, answer[i], index_answer+i);
 
 	return SUCCESS;
 }
