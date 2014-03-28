@@ -8,9 +8,14 @@ void SearchTest(const int *const items, const int n_items,
 	/* Output string for testing */
 	string SRString[FoundLess + 1]={"Not Found","Found Exact",
 		"Found Greater", "Found Less"};
+	string STString[GreaterThan + 1]={"Less Than", "Less Than Equals",
+		"Equals", "Greater Than Equals", "Greater Than"};
 		
 	SearchResult result = Search(items, n_items, ascending, 
 		key, type, index);
+		
+	cout << "The Key Value is: "<< key << "\n";
+	cout << "The Search Type is: "<< STString[type]<<"\n";
 
 	if(result != answer) {
 		cout << "The Search Result should be: "<< SRString[answer]<<"\n"
@@ -29,5 +34,6 @@ void SearchTest(const int *const items, const int n_items,
 	else {
 		cout << "The index is correct: " << *index_answer<<".\n";
 	}
+	cout << "\n";
 }
 	
